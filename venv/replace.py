@@ -6,12 +6,12 @@ import sys
 print(sys.getdefaultencoding())
 
 # 自定义正则
-# rex = "\'2018-"
-# new_str = "\'2019-"
+rex = "\'2018-"
+new_str = "\'2019-"
 # old_file_path = r'E:\database\database\t_acq_data_2018_whole.sql'
 # new_file_path = r'E:\database\database\t_acq_data_2019_whole.sql'
-rex = "PRIMARY KEY \(\`ACQ_DATA_ID\`\)\r\n"
-new_str = "PRIMARY KEY \(\`ACQ_DATA_ID\`\)\,\r\n"
+# rex = "PRIMARY KEY \(\`ACQ_DATA_ID\`\)\r\n"
+# new_str = "PRIMARY KEY \(\`ACQ_DATA_ID\`\)\,\r\n"
 old_file_path = r'E:\database\database\t_acq_data_2018.sql'
 new_file_path = r'E:\database\database\t_acq_data_2019.sql'
 
@@ -45,7 +45,7 @@ def replace_match(old_file_path, new_file_path):
             elif ifmatch != []:
                 count += 1
                 print("替换前：%s" % line)
-                line = line.replace(rex.dencode("utf-8"),new_str.dencode("utf-8"))
+                line = line.replace(rex.encode("utf-8"),new_str.encode("utf-8"))
                 print("替换后：%s" % line)
                 newf.write(line.decode('utf-8'))
             else:
